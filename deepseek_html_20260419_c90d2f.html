@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Omkar Dipak Pawar | Mechanical Engineering Portfolio</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8fafc;
+            color: #0f172a;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        /* custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e2e8f0;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3b82f6;
+            border-radius: 12px;
+        }
+
+        /* navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(12px);
+            background: rgba(255,255,255,0.85);
+            z-index: 100;
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+            border-bottom: 1px solid rgba(59,130,246,0.2);
+        }
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, #1e3c72, #2b6cb0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.3px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 600;
+            color: #1e293b;
+            transition: 0.2s;
+            font-size: 0.95rem;
+        }
+        .nav-links a:hover {
+            color: #2563eb;
+            transform: translateY(-2px);
+        }
+
+        /* main container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* hero section */
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 4rem;
+            background: linear-gradient(145deg, #ffffff, #f1f5f9);
+            border-radius: 3rem;
+            padding: 2rem;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.05);
+        }
+        .hero-content {
+            flex: 1;
+        }
+        .hero-badge {
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 0.2rem 0.8rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            background: linear-gradient(to right, #0f172a, #2563eb);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .hero-content p {
+            margin: 1rem 0;
+            color: #334155;
+            font-size: 1.1rem;
+        }
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .btn {
+            padding: 0.7rem 1.5rem;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+            box-shadow: 0 4px 10px rgba(37,99,235,0.3);
+        }
+        .btn-primary:hover {
+            background: #1d4ed8;
+            transform: translateY(-3px);
+        }
+        .btn-outline {
+            border: 1.5px solid #2563eb;
+            color: #2563eb;
+            background: transparent;
+        }
+        .btn-outline:hover {
+            background: #2563eb10;
+            transform: translateY(-2px);
+        }
+        .hero-avatar {
+            flex: 0.7;
+            text-align: center;
+            background: radial-gradient(circle at 30% 20%, rgba(37,99,235,0.1), transparent);
+            border-radius: 50%;
+            padding: 1rem;
+        }
+        .hero-avatar i {
+            font-size: 10rem;
+            color: #2563eb;
+            filter: drop-shadow(0 8px 12px rgba(0,0,0,0.1));
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* cards grid */
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 2rem 0 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60%;
+            height: 4px;
+            background: linear-gradient(90deg, #2563eb, #7c3aed);
+            border-radius: 4px;
+        }
+        .grid-2cols {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        .card {
+            background: white;
+            border-radius: 2rem;
+            padding: 1.5rem;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 40px -12px rgba(0,0,0,0.15);
+            border-color: #bbd7fb;
+        }
+        .card-icon {
+            font-size: 2.5rem;
+            color: #2563eb;
+            margin-bottom: 1rem;
+        }
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .badge-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 1rem;
+        }
+        .badge {
+            background: #eef2ff;
+            padding: 0.3rem 0.9rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #1e40af;
+        }
+        .contact-info {
+            background: #f1f5f9;
+            border-radius: 1.5rem;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+        .contact-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1rem;
+            background: white;
+            padding: 0.7rem 1rem;
+            border-radius: 60px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .contact-row i {
+            width: 28px;
+            color: #2563eb;
+            font-size: 1.2rem;
+        }
+        .progress-bar {
+            margin: 1rem 0;
+        }
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+        }
+        .progress-track {
+            background: #e2e8f0;
+            border-radius: 20px;
+            height: 8px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            background: #2563eb;
+            width: 0%;
+            height: 100%;
+            border-radius: 20px;
+            transition: width 1s ease;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #0f172a;
+            color: #cbd5e1;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 760px) {
+            .nav-links {
+                gap: 1rem;
+            }
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            .hero-avatar i {
+                font-size: 6rem;
+            }
+            .container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <div class="logo">Omkar Pawar | Mech Innovator</div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#education">Education</a>
+            <a href="#certificates">Certifications</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<main class="container" id="home">
+    <!-- Hero Section -->
+    <div class="hero" data-aos="fade-up" data-aos-duration="800">
+        <div class="hero-content">
+            <span class="hero-badge"><i class="fas fa-cogs"></i> First Year Mechanical Engineer</span>
+            <h1>Omkar Dipak Pawar</h1>
+            <p><i class="fas fa-university"></i> MIT Academy of Engineering (MITAOE), Alandi</p>
+            <p>Passionate about design, automation, and sustainable energy solutions. Certified in Python & Autodesk Fusion. Seeking opportunities to blend mechanical core with computational tools.</p>
+            <div class="btn-group">
+                <a href="#contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Get in touch</a>
+                <a href="#education" class="btn btn-outline"><i class="fas fa-graduation-cap"></i> View Academics</a>
+            </div>
+        </div>
+        <div class="hero-avatar">
+            <i class="fas fa-user-astronaut"></i>
+        </div>
+    </div>
+
+    <!-- Education Section -->
+    <div id="education">
+        <h2 class="section-title" data-aos="fade-right"><i class="fas fa-graduation-cap"></i> Academic Journey</h2>
+        <div class="grid-2cols">
+            <div class="card" data-aos="fade-up" data-aos-delay="100">
+                <div class="card-icon"><i class="fas fa-laptop-code"></i></div>
+                <h3>Engineering (B.Tech Mechanical)</h3>
+                <p><strong>MIT Academy of Engineering, Alandi</strong> | First Year · 2024 – Present</p>
+                <div class="progress-bar">
+                    <div class="progress-label"><span>Semester 1 CGPA</span><span>7.5 / 10</span></div>
+                    <div class="progress-track"><div class="progress-fill" style="width: 75%;"></div></div>
+                </div>
+                <p><i class="fas fa-chart-line"></i> Strong foundation in Engineering Mechanics, Basic Electrical, and Manufacturing Processes.</p>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="200">
+                <div class="card-icon"><i class="fas fa-school"></i></div>
+                <h3>Higher Secondary (HSC)</h3>
+                <p>Percentage: <strong>56.67%</strong> | Science Stream</p>
+                <div class="progress-bar">
+                    <div class="progress-label"><span>Aggregate</span><span>56.7%</span></div>
+                    <div class="progress-track"><div class="progress-fill" style="width: 57%;"></div></div>
+                </div>
+                <p>Physics, Chemistry, Mathematics with practical exposure.</p>
+                <hr style="margin: 1rem 0;">
+                <h3>Secondary School (SSC)</h3>
+                <p>Percentage: <strong>83.40%</strong></p>
+                <div class="progress-bar">
+                    <div class="progress-label"><span>Merit Performance</span><span>83.4%</span></div>
+                    <div class="progress-track"><div class="progress-fill" style="width: 83%;"></div></div>
+                </div>
+                <p><i class="fas fa-trophy"></i> Distinction with strong foundation in Mathematics & Science.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Certifications & Skills Section -->
+    <div id="certificates">
+        <h2 class="section-title" data-aos="fade-right"><i class="fas fa-certificate"></i> Certifications & Core Skills</h2>
+        <div class="grid-2cols">
+            <div class="card" data-aos="flip-left" data-aos-duration="600">
+                <div class="card-icon"><i class="fab fa-python"></i></div>
+                <h3>Python Essentials</h3>
+                <p>Certified in Python programming fundamentals – data structures, loops, functions, and problem-solving. Great for simulation & computational analysis in mechanical domain.</p>
+                <div class="badge-list"><span class="badge"><i class="fas fa-code"></i> PCAP style</span><span class="badge">Automation ready</span></div>
+            </div>
+            <div class="card" data-aos="flip-left" data-aos-delay="100" data-aos-duration="600">
+                <div class="card-icon"><i class="fas fa-briefcase"></i></div>
+                <h3>Career Management Essentials</h3>
+                <p>Professional development, resume building, soft skills, and workplace communication – certified by NASSCOM aligned industry readiness.</p>
+                <div class="badge-list"><span class="badge">Corporate Ready</span><span class="badge">Leadership</span></div>
+            </div>
+            <div class="card" data-aos="flip-left" data-aos-delay="200" data-aos-duration="600">
+                <div class="card-icon"><i class="fas fa-cube"></i></div>
+                <h3>Autodesk Fusion 360</h3>
+                <p>Certified in 3D modeling, sketching, assemblies, and rendering. Capable of designing mechanical components and creating digital prototypes.</p>
+                <div class="badge-list"><span class="badge">CAD Modelling</span><span class="badge">Simulation Ready</span></div>
+            </div>
+            <div class="card" data-aos="flip-left" data-aos-delay="300" data-aos-duration="600">
+                <div class="card-icon"><i class="fas fa-microchip"></i></div>
+                <h3>Technical Toolbox</h3>
+                <p><strong>NASSCOM certified</strong> | Soft Skills & Industry 4.0 awareness. Plus basics of MATLAB, Excel for data analysis, and engineering drawing.</p>
+                <div class="badge-list"><span class="badge">Problem Solving</span><span class="badge">Critical Thinking</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Additional interactive stats & hobbies -->
+    <div data-aos="zoom-in-up">
+        <h2 class="section-title"><i class="fas fa-heart"></i> Beyond Academics</h2>
+        <div class="grid-2cols">
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-robot"></i></div>
+                <h3>Projects & Interests</h3>
+                <ul style="margin-left: 1.2rem; line-height: 1.5;">
+                    <li><i class="fas fa-drafting-compass"></i> Design of sustainable hydroponic structure (Fusion 360)</li>
+                    <li><i class="fas fa-charging-station"></i> Exploring EV battery thermal management</li>
+                    <li><i class="fab fa-python"></i> Python mini-project: Mechanical properties calculator</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-futbol"></i></div>
+                <h3>Extracurricular</h3>
+                <p>Active member of MITAOE's Robotics Club & SAE Collegiate Chapter. Participated in tech symposiums and volunteered for National Service Scheme (NSS).</p>
+                <div class="badge-list"><span class="badge">Team Player</span><span class="badge">Event Coordinator</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact & Resume Section -->
+    <div id="contact">
+        <h2 class="section-title" data-aos="fade-right"><i class="fas fa-address-card"></i> Connect with Me</h2>
+        <div class="grid-2cols" style="margin-bottom: 2rem;">
+            <div class="card" data-aos="fade-up">
+                <div class="card-icon"><i class="fas fa-phone-alt"></i></div>
+                <h3>Direct Contact</h3>
+                <div class="contact-info">
+                    <div class="contact-row"><i class="fas fa-mobile-alt"></i> <span>+91 9960948204</span></div>
+                    <div class="contact-row"><i class="fas fa-envelope"></i> <span>omakarpawar22052007@gmail.com</span></div>
+                    <div class="contact-row"><i class="fab fa-linkedin"></i> <span>linkedin.com/in/omkar-pawar-mit</span></div>
+                    <div class="contact-row"><i class="fab fa-github"></i> <span>github.com/omkarpawar-mech</span></div>
+                </div>
+                <div style="margin-top: 1rem;">
+                    <a href="#" class="btn btn-outline" id="downloadResumeBtn"><i class="fas fa-download"></i> Download Resume (PDF)</a>
+                </div>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="100">
+                <div class="card-icon"><i class="fas fa-comment-dots"></i></div>
+                <h3>Quick Message</h3>
+                <form id="contactForm">
+                    <input type="text" id="msgName" placeholder="Your Name" style="width:100%; padding:12px; margin-bottom:12px; border-radius:30px; border:1px solid #cbd5e1; outline:none;">
+                    <input type="email" id="msgEmail" placeholder="Your Email" style="width:100%; padding:12px; margin-bottom:12px; border-radius:30px; border:1px solid #cbd5e1;">
+                    <textarea id="msgContent" rows="2" placeholder="Write a message..." style="width:100%; padding:12px; border-radius:24px; border:1px solid #cbd5e1; resize:none;"></textarea>
+                    <button type="submit" class="btn btn-primary" style="margin-top:12px; width:100%; justify-content:center;"><i class="fas fa-paper-plane"></i> Send</button>
+                    <p id="formFeedback" style="font-size:0.8rem; margin-top:8px; color:#2563eb;"></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <p>© 2026 Omkar Dipak Pawar — Built with <i class="fas fa-heart" style="color:#ef4444;"></i> for interactive engineering portfolio. MITAOE, Alandi.</p>
+    <p style="margin-top:8px;"><i class="fas fa-sync-alt"></i> Always learning & iterating</p>
+</footer>
+
+<!-- libraries -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    // init AOS animations
+    AOS.init({
+        duration: 800,
+        once: false,
+        mirror: true,
+    });
+
+    // Progress bar fill animation on scroll (using Intersection Observer)
+    const progressFills = document.querySelectorAll('.progress-fill');
+    const animateProgress = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const fill = entry.target;
+                const width = fill.style.width;
+                if (width && width !== '0%') {
+                    fill.style.transition = 'width 0.8s ease-out';
+                    // already set inline style from html but ensure it triggers
+                    fill.style.width = width;
+                }
+                observer.unobserve(fill);
+            }
+        });
+    };
+    const progressObserver = new IntersectionObserver(animateProgress, { threshold: 0.3 });
+    progressFills.forEach(fill => progressObserver.observe(fill));
+
+    // Smooth scroll for nav links
+    document.querySelectorAll('.nav-links a, .btn-group a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if (targetId && targetId.startsWith('#')) {
+                e.preventDefault();
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+        });
+    });
+
+    // Contact form simulation (interactive feedback)
+    const contactForm = document.getElementById('contactForm');
+    const feedbackSpan = document.getElementById('formFeedback');
+    if(contactForm){
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('msgName').value.trim();
+            const email = document.getElementById('msgEmail').value.trim();
+            const msg = document.getElementById('msgContent').value.trim();
+            if(!name || !email || !msg){
+                feedbackSpan.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Please fill all fields.';
+                feedbackSpan.style.color = '#dc2626';
+                setTimeout(() => { feedbackSpan.innerHTML = ''; }, 2000);
+                return;
+            }
+            if(!email.includes('@')){
+                feedbackSpan.innerHTML = '<i class="fas fa-envelope"></i> Valid email required.';
+                feedbackSpan.style.color = '#dc2626';
+                setTimeout(() => { feedbackSpan.innerHTML = ''; }, 2000);
+                return;
+            }
+            feedbackSpan.innerHTML = '<i class="fas fa-check-circle"></i> Thanks ' + name + '! Omkar will reach you soon.';
+            feedbackSpan.style.color = '#16a34a';
+            contactForm.reset();
+            setTimeout(() => { feedbackSpan.innerHTML = ''; }, 3000);
+        });
+    }
+
+    // Download resume simulation (Generate dynamic PDF-like style alert + trigger download of a dummy but professional file)
+    const downloadBtn = document.getElementById('downloadResumeBtn');
+    if(downloadBtn){
+        downloadBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            // Create a virtual resume blob with Omkar's details
+            const resumeContent = `
+            OMKAR DIPAK PAWAR
+            Mechanical Engineering Student | MITAOE, Alandi
+            Contact: +91 9960948204 | omakarpawar22052007@gmail.com
+
+            EDUCATION:
+            • B.Tech Mechanical (First Year) - MIT Academy of Engineering, Alandi | CGPA: 7.5 (Sem 1)
+            • HSC (12th): 56.67% | SSC (10th): 83.40%
+
+            CERTIFICATIONS:
+            ✓ Python Essentials
+            ✓ Career Management Essentials (NASSCOM)
+            ✓ Autodesk Fusion 360 Certified
+
+            KEY SKILLS:
+            - 3D Modeling (Fusion 360), Basic Python Programming
+            - Engineering Drawing, Problem Solving, Team Collaboration
+            - MS Office, Basics of Data Analysis
+
+            ACHIEVEMENTS:
+            • First Semester CGPA 7.5
+            • NASSCOM certified for professional readiness
+            • Active in Robotics Club & SAE collegiate chapter
+
+            INTERESTS: Sustainable design, EV technology, CAD automation.
+            `;
+            const blob = new Blob([resumeContent], {type: 'text/plain'});
+            const link = document.createElement('a');
+            const url = URL.createObjectURL(blob);
+            link.href = url;
+            link.download = 'Omkar_Pawar_Resume.txt';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+            // show toast style alert (temporary)
+            const toast = document.createElement('div');
+            toast.innerText = '📄 Resume (text) downloaded!';
+            toast.style.position = 'fixed';
+            toast.style.bottom = '20px';
+            toast.style.right = '20px';
+            toast.style.backgroundColor = '#1e293b';
+            toast.style.color = 'white';
+            toast.style.padding = '12px 20px';
+            toast.style.borderRadius = '40px';
+            toast.style.fontSize = '0.9rem';
+            toast.style.zIndex = '999';
+            toast.style.boxShadow = '0 5px 15px rgba(0,0,0,0.2)';
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 2500);
+        });
+    }
+
+    // Additional Hover effect on cards, just for delight
+    const allCards = document.querySelectorAll('.card');
+    allCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.transition = 'transform 0.2s, box-shadow 0.2s';
+        });
+    });
+
+    // show current year in footer dynamic optional
+    const footerYear = document.querySelector('footer p:first-child');
+    if(footerYear){
+        const year = new Date().getFullYear();
+        footerYear.innerHTML = `© ${year} Omkar Dipak Pawar — Built with <i class="fas fa-heart" style="color:#ef4444;"></i> for interactive engineering portfolio. MITAOE, Alandi.`;
+    }
+</script>
+</body>
+</html>
